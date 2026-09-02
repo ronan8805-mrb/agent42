@@ -29,7 +29,7 @@ function Home() {
               </h1>
               <p className="mt-5 max-w-md text-lg text-paper/70">
                 It answers in 25 languages, books the job, and texts you the brief.
-                Open at 3am. No sick days. No “sorry I was on the roof.”
+                Open at 3am. No sick days. No complaining.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button size="lg" className="bg-[#F5C518] text-ink hover:bg-[#e0b40f]" asChild>
