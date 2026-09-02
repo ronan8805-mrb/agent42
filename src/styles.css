@@ -282,3 +282,9 @@
   70% { transform: rotate(12deg); }
   100% { transform: rotate(0deg); }
 }
+
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
