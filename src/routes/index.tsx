@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { MarketingShell } from "@/components/marketing/shell";
-import { PhoneMock } from "@/components/marketing/phone-mock";
+import { ReceptionistLoop } from "@/components/marketing/receptionist-loop";
 import { Button } from "@/components/ui/button";
 import { INDUSTRIES } from "@/lib/seed";
 
@@ -17,11 +17,11 @@ function Home() {
               Agent 42
             </p>
             <h1 className="mt-4 text-5xl font-medium tracking-tight sm:text-6xl lg:text-7xl">
-              Your phones, answered.
+              The receptionist that never sleeps.
             </h1>
             <p className="mt-5 max-w-md text-lg text-muted">
-              A managed AI receptionist for any business, anywhere. It picks up,
-              books the work, and writes it down.
+              A managed AI on your line. It picks up in twenty-five languages,
+              books the work, and writes it down — even with both feet on the desk.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
@@ -34,7 +34,7 @@ function Home() {
             <p className="mt-4 text-sm text-muted">No card. Live in minutes.</p>
           </div>
           <div className="rise-in stagger-2">
-            <PhoneMock />
+            <ReceptionistLoop />
           </div>
         </section>
 
