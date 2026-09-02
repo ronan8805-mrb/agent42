@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { MarketingShell } from "@/components/marketing/shell";
 import { ReceptionistLoop } from "@/components/marketing/receptionist-loop";
 import { Button } from "@/components/ui/button";
