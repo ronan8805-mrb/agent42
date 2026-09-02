@@ -7,177 +7,101 @@ import { INDUSTRIES } from "@/lib/seed";
 
 export const Route = createFileRoute("/")({ component: Home });
 
+const TICKER = ["Hello", "Dia dhuit", "Bonjour", "Hola", "Ciao", "Guten Tag", "Hej", "Olá", "Cześć", "Namaste"];
+
 function Home() {
   return (
     <MarketingShell>
       <main id="content">
-        <section className="mx-auto grid max-w-content items-center gap-16 px-6 pt-16 pb-20 lg:grid-cols-2 lg:pt-24">
-          <div className="rise-in">
-            <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">
-              Agent 42
-            </p>
-            <h1 className="mt-4 text-5xl font-medium tracking-tight sm:text-6xl lg:text-7xl">
-              The receptionist that never sleeps.
-            </h1>
-            <p className="mt-5 max-w-md text-lg text-muted">
-              A managed AI on your line. It picks up in twenty-five languages,
-              books the work, and writes it down — even with both feet on the desk.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg" asChild>
-                <Link to="/trial">Start 24-hour free trial</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/how-it-works">See how it works</Link>
-              </Button>
+        <section className="bg-ink text-paper">
+          <div className="overflow-hidden border-b border-paper/10">
+            <div className="flex animate-[ticker_22s_linear_infinite] gap-10 whitespace-nowrap py-3 text-xs font-medium tracking-[0.18em] text-[#F5C518] uppercase">
+              {[...TICKER, ...TICKER, ...TICKER].map((w, i) => (
+                <span key={i}>{w} · never sleeps</span>
+              ))}
             </div>
-            <p className="mt-4 text-sm text-muted">No card. Live in minutes.</p>
           </div>
-          <div className="rise-in stagger-2">
+          <div className="mx-auto grid max-w-content items-center gap-12 px-6 pt-14 pb-16 lg:grid-cols-2 lg:pt-20">
+            <div>
+              <p className="text-xs font-medium tracking-[0.2em] text-[#F5C518] uppercase">Agent 42</p>
+              <h1 className="mt-4 text-5xl font-medium tracking-tight sm:text-6xl">
+                Missed calls leave.
+                <span className="block text-[#2DD4BF]">We don’t.</span>
+              </h1>
+              <p className="mt-5 max-w-md text-lg text-paper/70">
+                It answers in 25 languages, books the job, and texts you the brief.
+                Open at 3am. No sick days. No “sorry I was on the roof.”
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button size="lg" className="bg-[#F5C518] text-ink hover:bg-[#e0b40f]" asChild>
+                  <Link to="/trial">Put it on the phone tonight</Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-paper/30 text-paper hover:bg-paper/10" asChild>
+                  <Link to="/how-it-works">See a call</Link>
+                </Button>
+              </div>
+              <p className="mt-4 text-sm text-paper/50">24-hour trial. No card.</p>
+            </div>
             <ReceptionistLoop />
           </div>
-        </section>
-
-        <section className="border-y border-line bg-mist/60">
-          <div className="mx-auto flex max-w-content flex-col gap-8 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-sm text-sm text-muted-strong">
-              From a one-chair shop to a group with twelve sites.
-            </p>
-            <div className="grid grid-cols-3 gap-8 text-left">
-              <Metric n="24/7" l="Coverage" />
-              <Metric n="25+" l="Languages" />
-              <Metric n="€0.06" l="Per minute" />
-            </div>
+          <div className="grid md:grid-cols-3">
+            <Punch c="#F5C518" k="01" t="They rang. You were on a roof." d="Voicemail doesn’t book work. We pick up." />
+            <Punch c="#2DD4BF" k="02" t="Thursday at two. Done." d="Calendar, SMS, email. While you’re still on the tools." />
+            <Punch c="#E85D4C" k="03" t="You get the brief. Keep working." d="Every call written up. Read it walking to the van." />
           </div>
         </section>
 
-        <section id="features" className="mx-auto max-w-content px-6 py-24">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">
-            What it does
-          </p>
-          <h2 className="mt-3 max-w-xl text-3xl font-medium tracking-tight sm:text-4xl">
-            Answers. Books. Briefs you.
+        <section className="mx-auto max-w-content px-6 py-20">
+          <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">The deal</p>
+          <h2 className="mt-3 max-w-2xl text-4xl font-medium tracking-tight">
+            A person on the phone costs a salary. This costs a night out.
           </h2>
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
-            <Feature
-              k="01"
-              t="Answers"
-              d="A natural voice on your dedicated number. Any accent. Any hour. Human hand-off when you want it."
-            />
-            <Feature
-              k="02"
-              t="Books"
-              d="Calendar, SMS, and email confirmations. The diary fills while you stay on the tools."
-            />
-            <Feature
-              k="03"
-              t="Briefs you"
-              d="Every call is recorded, transcribed, and summarised. Read it on the walk to the kettle."
-            />
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <Deal k="€99" t="Starter" d="One number. SMS and email summaries." />
+            <Deal k="€149" t="Pro" d="The dashboard. Most desks pick this." hot />
+            <Deal k="Custom" t="Bigger" d="More lines, more sites, your rules." />
           </div>
-        </section>
-
-        <section className="mx-auto grid max-w-content items-center gap-12 px-6 pb-24 lg:grid-cols-2">
-          <img
-            src="/images/alcove.jpg"
-            alt="A quiet telephone alcove in warm dusk light"
-            className="editorial aspect-4/3 w-full rounded-2xl object-cover"
-          />
-          <div>
-            <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">
-              How it works
-            </p>
-            <ol className="mt-6 space-y-6">
-              {[
-                ["Tell us the business", "Hours, services, voice, and the odd rule you care about."],
-                ["We launch the number", "A dedicated line, live in minutes. Yours to keep."],
-                ["Calls get booked and written up", "Confirmations go out. You get the brief."],
-              ].map(([t, d], i) => (
-                <li key={t} className="flex gap-4">
-                  <span className="tabular text-sm text-muted">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <p className="font-medium">{t}</p>
-                    <p className="text-sm text-muted">{d}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <Button variant="link" className="mt-6 px-0" asChild>
-              <Link to="/how-it-works">
-                The full story <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-content px-6 pb-8 pt-4">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">Who it’s for</p>
-              <h2 className="mt-3 text-3xl font-medium tracking-tight">Small, medium, and large.</h2>
-            </div>
-            <Link to="/industries" className="hidden text-sm text-accent hover:underline sm:inline">
-              All examples
+          <p className="mt-6 text-sm text-muted">
+            Minutes extra. From about 9–10c once we pick up.{" "}
+            <Link to="/pricing" className="text-foreground underline-offset-4 hover:underline">
+              Full prices
             </Link>
-          </div>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {INDUSTRIES.map((ind) => (
-              <Link
-                key={ind.slug}
-                to="/industries/$slug"
-                params={{ slug: ind.slug }}
-                className="rounded-2xl border border-line bg-background p-4 hover:border-foreground/20"
-              >
-                <p className="text-[11px] tracking-wide text-muted uppercase">{ind.size}</p>
-                <p className="mt-1 font-medium">{ind.title}</p>
-              </Link>
-            ))}
-          </div>
+          </p>
         </section>
 
-        <section className="border-y border-line bg-mist/40">
-          <div className="mx-auto max-w-content px-6 py-20">
-            <div className="flex items-end justify-between gap-6">
-              <h2 className="text-3xl font-medium tracking-tight">Two plans. Minutes extra.</h2>
-              <Link to="/pricing" className="hidden text-sm text-accent hover:underline sm:inline">
-                See pricing
-              </Link>
-            </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <PlanTeaser
-                name="Starter"
-                price="€99"
-                line="One number. SMS and email summaries. No full dashboard."
-              />
-              <PlanTeaser
-                name="Pro"
-                price="€149"
-                line="One number plus the branded dashboard. The one most desks choose."
-                featured
-              />
-            </div>
-            <p className="mt-6 text-sm text-muted">
-              Need more than one number or multiple locations?{" "}
-              <Link
-                to="/contact"
-                search={{ plan: "enterprise" }}
-                className="text-foreground underline-offset-4 hover:underline"
-              >
-                Tell us what you need.
-              </Link>
+        <section className="bg-[#0F766E] text-paper">
+          <div className="mx-auto max-w-content px-6 py-16">
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
+              Built for desks that actually ring.
+            </h2>
+            <p className="mt-3 max-w-lg text-paper/75">
+              Salons. Trades. Clinics. Garages. Restaurants. Gyms. If the phone makes you money and you can’t sit next to it — that’s us.
             </p>
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {INDUSTRIES.map((ind) => (
+                <Link
+                  key={ind.slug}
+                  to="/industries/$slug"
+                  params={{ slug: ind.slug }}
+                  className="rounded-2xl bg-ink/25 p-4 text-paper hover:bg-ink/40"
+                >
+                  <p className="text-[11px] tracking-wide text-[#F5C518] uppercase">{ind.size}</p>
+                  <p className="mt-1 font-medium">{ind.title}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-content px-6 py-24 text-center">
-          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
-            Put someone on the line tonight.
+        <section className="mx-auto max-w-content px-6 py-20 text-center">
+          <h2 className="text-4xl font-medium tracking-tight">
+            Stop letting the phone ring out.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-muted">
-            Twenty-four hours. No card. If it isn’t right, you walk away.
+            Twenty-four hours. If it’s not right, walk away. If it is, keep the number.
           </p>
-          <Button size="lg" className="mt-8" asChild>
-            <Link to="/trial">Start 24-hour free trial</Link>
+          <Button size="lg" className="mt-8 bg-[#E85D4C] text-paper hover:bg-[#c2473a]" asChild>
+            <Link to="/trial">Start the free night shift</Link>
           </Button>
         </section>
       </main>
@@ -185,55 +109,22 @@ function Home() {
   );
 }
 
-function Metric({ n, l }: { n: string; l: string }) {
+function Punch({ c, k, t, d }: { c: string; k: string; t: string; d: string }) {
   return (
-    <div>
-      <div className="tabular text-xl font-medium tracking-tight">{n}</div>
-      <div className="text-xs text-muted">{l}</div>
+    <div className="px-6 py-8 text-ink" style={{ background: c }}>
+      <p className="text-xs font-medium tracking-[0.16em] uppercase">{k}</p>
+      <h3 className="mt-4 text-2xl font-medium tracking-tight">{t}</h3>
+      <p className="mt-2 text-sm text-ink/70">{d}</p>
     </div>
   );
 }
 
-function Feature({ k, t, d }: { k: string; t: string; d: string }) {
+function Deal({ k, t, d, hot }: { k: string; t: string; d: string; hot?: boolean }) {
   return (
-    <div className="bg-background p-8">
-      <p className="tabular text-xs text-muted">{k}</p>
-      <h3 className="mt-6 text-xl font-medium tracking-tight">{t}</h3>
-      <p className="mt-2 text-sm text-muted">{d}</p>
-    </div>
-  );
-}
-
-function PlanTeaser({
-  name,
-  price,
-  line,
-  featured,
-}: {
-  name: string;
-  price: string;
-  line: string;
-  featured?: boolean;
-}) {
-  return (
-    <div
-      className={
-        featured
-          ? "rounded-2xl border border-accent/40 bg-background p-6"
-          : "rounded-2xl border border-line bg-background p-6"
-      }
-    >
-      <div className="flex items-baseline justify-between">
-        <p className="font-medium">{name}</p>
-        {featured ? (
-          <span className="text-xs tracking-wide text-accent uppercase">Bestseller</span>
-        ) : null}
-      </div>
-      <p className="mt-4 tabular text-3xl font-medium tracking-tight">
-        {price}
-        <span className="text-base font-normal text-muted">/mo</span>
-      </p>
-      <p className="mt-2 text-sm text-muted">{line}</p>
+    <div className={hot ? "rounded-2xl bg-ink p-6 text-paper" : "rounded-2xl border border-line p-6"}>
+      <p className="text-xs tracking-[0.16em] uppercase text-muted">{t}</p>
+      <p className="mt-3 tabular text-3xl font-medium tracking-tight">{k}</p>
+      <p className="mt-2 text-sm opacity-75">{d}</p>
     </div>
   );
 }
