@@ -253,3 +253,32 @@
 .skip-link:focus {
   top: 12px;
 }
+
+
+.desk-stage .phone-extra,
+.desk-stage .note,
+.desk-stage .keyboard {
+  transition: opacity 280ms ease;
+}
+.desk-stage.pose-five .phone-extra,
+.desk-stage.pose-notes .note,
+.desk-stage.pose-mail .keyboard {
+  opacity: 1;
+}
+.desk-stage.pose-spin .chair-spin {
+  animation: chair-twist 2.6s ease-in-out both;
+}
+.desk-stage.pose-feet .leg-l,
+.desk-stage.pose-feet .leg-r {
+  transform-box: fill-box;
+  transform-origin: top center;
+}
+.desk-stage.pose-feet .leg-l { transform: rotate(-28deg); }
+.desk-stage.pose-feet .leg-r { transform: rotate(18deg); }
+
+@keyframes chair-twist {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(-18deg); }
+  70% { transform: rotate(12deg); }
+  100% { transform: rotate(0deg); }
+}
