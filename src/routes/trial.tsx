@@ -37,10 +37,10 @@ function Trial() {
     <MarketingShell>
       <RequireHydrated>
       <main id="content" className="mx-auto max-w-lg px-6 py-20">
-        <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">Trial</p>
-        <h1 className="mt-3 text-4xl font-medium tracking-tight">Twenty-four hours. No card.</h1>
-        <p className="mt-3 text-muted">
-          We’ll launch a number and put Aoife on the line. You can walk away when the clock runs out.
+        <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Trial</p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight">One night. No card. No speech.</h1>
+        <p className="mt-3 text-lg text-muted">
+          We put a number on. If it’s good, keep it. If it isn’t, walk.
         </p>
         <form onSubmit={onSubmit} className="mt-10 space-y-4">
           <Field id="name" label="Name">

@@ -49,12 +49,12 @@ function Pricing() {
   return (
     <MarketingShell>
       <main id="content" className="mx-auto max-w-content px-6 py-20">
-        <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">Pricing</p>
-        <h1 className="mt-3 max-w-2xl text-4xl font-medium tracking-tight sm:text-5xl">
-          A service fee. Minutes on top.
+        <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Pricing</p>
+        <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          €99. €149. Minutes on top. That’s it.
         </h1>
-        <p className="mt-4 max-w-xl text-muted">
-          Monthly only. No seat maths. The receptionist is the plan; the line is usage.
+        <p className="mt-4 max-w-xl text-lg text-muted">
+          No seats. No “per user.” The receptionist is the plan. Talking is the extra.
         </p>
 
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
@@ -182,13 +182,13 @@ function PlanCard({
     <div
       className={
         featured
-          ? "relative flex flex-col rounded-2xl border-2 border-accent p-6"
-          : "flex flex-col rounded-2xl border border-line p-6"
+          ? "relative flex flex-col rounded-3xl bg-ink p-6 text-paper"
+          : "flex flex-col rounded-3xl bg-stone p-6"
       }
     >
       {featured ? (
-        <span className="absolute -top-3 left-6 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-accent-fg uppercase">
-          Bestseller
+        <span className="absolute -top-3 left-6 rounded-full bg-[#F5C518] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-ink uppercase">
+          Most desks
         </span>
       ) : null}
       <p className="text-sm font-medium">{name}</p>

@@ -288,3 +288,19 @@
   from { transform: translateX(0); }
   to { transform: translateX(-33.333%); }
 }
+
+@keyframes desk-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.desk-bubble {
+  animation: desk-float 3.8s ease-in-out infinite;
+}

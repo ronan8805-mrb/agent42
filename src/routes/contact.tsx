@@ -40,14 +40,14 @@ function Contact() {
     <MarketingShell>
       <RequireHydrated>
       <main id="content" className="mx-auto max-w-content px-6 py-20">
-        <p className="text-xs font-medium tracking-[0.18em] text-muted uppercase">Contact</p>
-        <h1 className="mt-3 max-w-xl text-4xl font-medium tracking-tight">
-          {plan === "enterprise" ? "Tell us what you need." : "Write to the desk."}
+        <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Contact</p>
+        <h1 className="mt-3 max-w-xl text-4xl font-semibold tracking-tight">
+          {plan === "enterprise" ? "More lines. Say how many." : "Write. We answer. That’s the joke."}
         </h1>
-        <p className="mt-4 max-w-lg text-muted">
+        <p className="mt-4 max-w-lg text-lg text-muted">
           {plan === "enterprise"
-            ? "Multiple numbers, several locations, a named onboarding. Send a short note — we reply in a working day."
-            : "Sales, support, or a quiet question. We read everything."}
+            ? "Several numbers, several sites. Short note. Reply in a working day — not a chatbot loop."
+            : "Sales, support, or a quiet question. A person reads it."}
         </p>
         {done ? (
           <p className="mt-10 max-w-md rounded-2xl border border-line bg-mist p-6 text-sm">

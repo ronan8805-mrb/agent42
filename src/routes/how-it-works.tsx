@@ -3,66 +3,88 @@ import { useState } from "react";
 import { MarketingShell } from "@/components/marketing/shell";
 import { Button } from "@/components/ui/button";
 import { PhoneMock } from "@/components/marketing/phone-mock";
-import { FloatChips } from "@/components/marketing/float-chips";
+import { FloatBits } from "@/components/marketing/float-bits";
 
 export const Route = createFileRoute("/how-it-works")({ component: HowItWorks });
 
 const STEPS = [
-  { n: "01", c: "#F5C518", t: "Tell us the shop.", d: "Hours, services, the voice, the one rule you actually enforce. We load a brain, not a script you have to read." },
-  { n: "02", c: "#2DD4BF", t: "We switch the line on.", d: "Dedicated number. Your country. Live in minutes. Keep it if you stay." },
-  { n: "03", c: "#E85D4C", t: "It books. You get the note.", d: "Calendar, SMS, email. Recording, transcript, one-line brief. You stay on the tools." },
+  {
+    n: "01",
+    c: "#F5C518",
+    t: "Tell us the shop",
+    d: "Hours, prices, the odd rule. We load a brain, not a script you have to read out.",
+  },
+  {
+    n: "02",
+    c: "#2DD4BF",
+    t: "We switch the number on",
+    d: "Dedicated line. Your country. Live the same day. You keep it if you stay.",
+  },
+  {
+    n: "03",
+    c: "#E85D4C",
+    t: "Work comes in. You get the brief.",
+    d: "Booked. Confirmed. Written down. Read it when your hands are free.",
+  },
 ];
 
 export default function HowItWorks() {
   return (
     <MarketingShell>
       <main id="content">
-        <section className="relative overflow-hidden bg-ink px-6 pt-20 pb-16 text-paper">
-          <FloatChips />
+        <section className="relative overflow-hidden bg-ink px-6 pt-16 pb-20 text-paper">
+          <FloatBits dark />
           <div className="relative mx-auto max-w-content">
-            <p className="text-xs font-medium tracking-[0.2em] text-[#F5C518] uppercase">Product</p>
-            <h1 className="mt-3 max-w-2xl text-4xl font-medium tracking-tight sm:text-6xl">
-              Live before lunch.
-              <span className="block text-[#2DD4BF]">No new phone system.</span>
+            <p className="text-xs font-semibold tracking-[0.2em] text-[#F5C518] uppercase">How it works</p>
+            <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-6xl">
+              Three moves. Then the phone earns.
             </h1>
             <p className="mt-4 max-w-xl text-lg text-paper/70">
-              Three steps. Callers think it’s a person at the desk. You know it never clocks out.
+              No hardware. No new switchboard. Callers hear a person. You hear a summary.
             </p>
           </div>
         </section>
-        <div className="mx-auto max-w-content px-6 py-16">
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.9fr]">
-            <ol>
-              {STEPS.map((s) => (
-                <li key={s.n} className="mb-6 rounded-2xl p-6 text-ink" style={{ background: s.c }}>
-                  <span className="text-xs font-medium tracking-[0.16em] uppercase">{s.n}</span>
-                  <h2 className="mt-2 text-2xl font-medium tracking-tight">{s.t}</h2>
-                  <p className="mt-2 text-ink/70">{s.d}</p>
-                </li>
-              ))}
-            </ol>
-            <SampleCall />
+
+        <section className="mx-auto max-w-content px-6 py-16">
+          <div className="grid gap-4 lg:grid-cols-3">
+            {STEPS.map((s) => (
+              <article key={s.n} className="rounded-3xl p-6 text-ink" style={{ background: s.c }}>
+                <p className="text-xs font-semibold tracking-widest uppercase">{s.n}</p>
+                <h2 className="mt-8 text-2xl font-semibold tracking-tight">{s.t}</h2>
+                <p className="mt-3 text-sm text-ink/75">{s.d}</p>
+              </article>
+            ))}
           </div>
-          <div className="mt-8 rounded-2xl bg-ink p-8 text-paper sm:grid sm:grid-cols-2 sm:gap-8">
+
+          <div className="mt-16 grid items-start gap-10 lg:grid-cols-2">
+            <SampleCall />
             <div>
-              <h2 className="text-2xl font-medium tracking-tight">What stays on</h2>
-              <ul className="mt-4 space-y-2 text-sm text-paper/70">
-                <li>Natural voice. Clone if you want.</li>
-                <li>Calendar, SMS, email — actually sent.</li>
-                <li>Recordings and transcripts.</li>
-                <li>A knowledge base you can edit.</li>
-                <li>A human when you say so.</li>
-                <li>25+ languages. Any accent.</li>
+              <h2 className="text-3xl font-semibold tracking-tight">What stays on</h2>
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "A voice. Optional clone.",
+                  "Calendar, SMS, email.",
+                  "Recordings and a one-line brief.",
+                  "A knowledge base you can edit.",
+                  "A human if it needs a human.",
+                  "25+ languages. Any accent.",
+                ].map((x) => (
+                  <li key={x} className="rounded-2xl bg-stone px-4 py-3 font-medium">
+                    {x}
+                  </li>
+                ))}
               </ul>
             </div>
-            <img src="/images/calendar.jpg" alt="Open desk calendar" className="editorial mt-6 aspect-4/3 w-full rounded-xl object-cover sm:mt-0" />
           </div>
-          <div className="mt-16 text-center">
-            <Button size="lg" className="bg-[#F5C518] text-ink hover:bg-[#e0b40f]" asChild>
-              <Link to="/trial">Put it on the phone tonight</Link>
+
+          <div className="mt-16 rounded-3xl bg-[#E85D4C] px-6 py-12 text-center text-paper">
+            <h2 className="text-3xl font-semibold tracking-tight">Try it for a night.</h2>
+            <p className="mx-auto mt-3 max-w-md text-paper/85">No card. If it’s rubbish, walk.</p>
+            <Button size="lg" className="mt-6 bg-ink text-paper hover:bg-ink/90" asChild>
+              <Link to="/trial">Start the free trial</Link>
             </Button>
           </div>
-        </div>
+        </section>
       </main>
     </MarketingShell>
   );
@@ -73,13 +95,15 @@ function SampleCall() {
   return (
     <div>
       <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm font-medium">A real-shaped call</p>
-        <button type="button" onClick={() => setOn((v) => !v)} className="text-xs text-accent hover:underline">
+        <p className="font-semibold">A real call, looping</p>
+        <button type="button" onClick={() => setOn((v) => !v)} className="text-sm font-medium text-accent hover:underline">
           {on ? "Pause" : "Play"}
         </button>
       </div>
-      {on ? <PhoneMock /> : (
-        <div className="grid h-80 place-items-center rounded-2xl bg-ink text-sm text-paper/60">Paused. The real one doesn’t.</div>
+      {on ? (
+        <PhoneMock />
+      ) : (
+        <div className="grid h-80 place-items-center rounded-2xl bg-ink text-sm text-paper/70">Paused. The line isn’t.</div>
       )}
     </div>
   );
